@@ -1,0 +1,25 @@
+
+    <input [(ngModel)]="query" id="listSearch" type="search" placeholder="Search" aria-label="Search">
+
+<table class="table" border="1">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of employee | searchFilter:query">
+            <td>{{e.empId}}</td>
+            <td>{{e.empName}}</td>
+            <td>{{e.empSalary}}</td>
+            <td>{{e.empAddress}}</td>
+            <td>{{e.empPhone}}</td>
+           
+            <td> <a href="#" [routerLink]="['/saldetails',e.empId,e.empSalary]"  class="btn btn-info">View</a>|<button (click)="deleteDetails(e.empId)" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+    
